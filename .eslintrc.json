@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "react-native", "@typescript-eslint", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -10,7 +10,8 @@
   ],
   "env": {
     "es6": true,
-    "node": true
+    "node": true,
+    "react-native/react-native": true
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -26,6 +27,10 @@
     }
   },
   "rules": {
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-raw-text": 2
   }
 }
