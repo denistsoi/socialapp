@@ -39,9 +39,12 @@ H. Navigating back up the UI tree should be possible.
 ```
 
 ## todos:
-- [ ] ensure tsconfig is setup
-- [ ] setup eslint-rules
-- [ ] setup jest
+- [x] ensure tsconfig is setup
+- [x] setup eslint-rules
+- [x] setup prettier  
+- [ ] setup husky and precommits
+
+<!-- - [ ] setup jest -->
 
 - [ ] look at what data is brought from the api
 - [ ] configure fastlane to ensure build is deployed to release
