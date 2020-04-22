@@ -2,9 +2,10 @@
 
 ## description
 
-React Native App written in Typescript.  
+React Native App written in Typescript.
 
 ## notes:
+
 check [notes](./notes.md) for judging criteria and other todos
 
 ## how to run
@@ -18,4 +19,5 @@ yarn ios
 ```
 
 ## author
+
 Denis tsoi <denistsoi@gmail.com>
