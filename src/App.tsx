@@ -26,4 +26,8 @@ const App: React.FC<Props> = () => {
   );
 };
 
-export default App;
+import storybook from "../storybook";
+
+const env = process.env.NODE_ENV == "development" ? storybook : App;
+
+export default env;

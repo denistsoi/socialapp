@@ -1,4 +1,5 @@
 {
+  "rootDirs": ["src", "stories"],
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
