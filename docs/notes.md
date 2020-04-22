@@ -42,13 +42,14 @@ H. Navigating back up the UI tree should be possible.
 - [x] ensure tsconfig is setup
 - [x] setup eslint-rules
 - [x] setup prettier  
-- [ ] setup husky and precommits
+- [x] setup husky and precommits
+- [x] setup jest (already brought in)
 
-<!-- - [ ] setup jest -->
-
-- [ ] look at what data is brought from the api
 - [ ] configure fastlane to ensure build is deployed to release
-- [ ] remind self on Typescript (and what to do)
+
+### api
+- [ ] look at what data is brought from the api
+
 
 ### components
 - [ ] card (pass in props to adjust card)
