@@ -1,4 +1,12 @@
-import { User, Todo, Photo, Album, Comment, Post } from "../types/resource";
+import {
+  User,
+  UserDetails,
+  Todo,
+  Photo,
+  Album,
+  Comment,
+  Post
+} from "../types/resource";
 
 const SOURCE_URL = "https://jsonplaceholder.typicode.com";
 
@@ -40,6 +48,10 @@ export const getUsers = ({ limit = 10 }: Options = {}): Promise<
   return fetchResource("users", {
     limit
   });
+};
+
+export const getUserDetails = (id: number): Promise<Array<UserDetails>> => {
+  return fetchResource(`users/${id}`);
 };
 
 export const getTodos = ({ limit = 10, start = 0 }: Options = {}): Promise<

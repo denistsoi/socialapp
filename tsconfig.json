@@ -12,6 +12,10 @@
     "strict": true,
     "target": "esnext"
   },
+  // "baseUrl": "./src",
+  // "paths": {
+  //   "@components/*": ["components/*"]
+  // },
   "exclude": [
     "node_modules",
     "babel.config.js",

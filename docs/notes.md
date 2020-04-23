@@ -50,21 +50,21 @@ H. Navigating back up the UI tree should be possible.
 ### api
 
 - [x] look at what data is brought from the api
+- [x] implement offset/limit for jsonplaceholder
 - [ ] implement in memory cache
-- [ ] implement offset/limit for jsonplaceholder
 
 - implement endpoints for
-  - [ ] `/posts`
-  - [ ] `/comments`
-  - [ ] `/albums`
-  - [ ] `/photos`
-  - [ ] `/todos`
-  - [ ] `/users`
+  - [x] `/posts` - `100`
+  - [x] `/comments` - `500`
+  - [x] `/albums` - `100`
+  - [x] `/photos` - `5000`
+  - [x] `/todos` - `200`
+  - [x] `/users` - `10`
 
 ### setup storybook for component development
 
 - [x] setup tooling
-- [ ] sort components based on use and include stories within each component folder (perhaps i should add in root alias)
+- [ ] sort components based on use and include stories within each component folder
 
 ### todo
 

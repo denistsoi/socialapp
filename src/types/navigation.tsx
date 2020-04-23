@@ -1,9 +1,12 @@
-// import { RouteProp } from "@react-navigation/native";
+import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
+type UserDetails = {
+  id: undefined;
+};
 export type RootStackParamList = {
   UsersList: undefined;
-  UserDetails: { name: undefined };
+  UserDetails: UserDetails | {};
 };
 
 /**
@@ -14,9 +17,10 @@ export type UserListNavigationProp = StackNavigationProp<
   "UsersList"
 >;
 
-// export type UserListRouteProp = RouteProp<RootStackParamList, "UserList">;
-
 export type UserDetailsNavigationProp = StackNavigationProp<
   RootStackParamList,
-  "UsersList"
+  "UserDetails"
 >;
+
+export type UserListRouteProp = RouteProp<RootStackParamList, "UsersList">;
+export type UserDetailsRouteProp = RouteProp<RootStackParamList, "UserDetails">;

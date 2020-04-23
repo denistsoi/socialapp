@@ -1,11 +1,12 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { ActivityIndicator, Button, Text, View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { UserListNavigationProp } from "../types/navigation";
 
 import styles from "./sharedStyles";
 
 import { User } from "../types/resource";
 import { getUsers } from "../api/apiClient";
+import UserItem from "../components/UserItem";
 
 type Props = {
   navigation: UserListNavigationProp;
@@ -26,7 +27,6 @@ const UsersList = ({ navigation }: Props): ReactElement => {
 
   return (
     <View style={styles.container}>
-      <Text>Hello World</Text>
       {!users ? (
         <ActivityIndicator />
       ) : (
@@ -34,17 +34,15 @@ const UsersList = ({ navigation }: Props): ReactElement => {
           {!users
             ? null
             : users.map((user) => (
-                <View key={user.id}>
-                  <Text>{user.name}</Text>
-                </View>
+                <UserItem
+                  key={user.id}
+                  user={user}
+                  onPress={(): void =>
+                    navigation.navigate("UserDetails", { id: user.id })
+                  }></UserItem>
               ))}
         </View>
       )}
-
-      <Button
-        title="Go to Details"
-        onPress={(): void => navigation.navigate("UserDetails")}
-      />
     </View>
   );
 };
