@@ -6,7 +6,7 @@ React Native App written in Typescript.
 
 ## notes:
 
-check [notes](./notes.md) for judging criteria and other todos
+check [notes](./docs/notes.md) for judging criteria and other todos
 
 ## how to run
 
