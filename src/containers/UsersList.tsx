@@ -4,21 +4,12 @@ import { UserListNavigationProp } from "../types/navigation";
 
 import styles from "./sharedStyles";
 
+import { User } from "../types/resource";
+import { getUsers } from "../api/apiClient";
+
 type Props = {
   navigation: UserListNavigationProp;
 };
-
-// type User = {
-//   id: string;
-//   name: string;
-//   email: string;
-//   phone: string;
-//   website: string;
-//   username: string;
-// };
-import User from "../types/user";
-
-import { getUsers } from "../api/apiClient";
 
 const useUsersListHook = (): Array<User> | null => {
   const [users, setUsers] = useState<Array<User> | null>(null);
