@@ -3,14 +3,14 @@
   "version": "0.0.2",
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "NODE_ENV=development react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
     "format": "prettier --check ./src",
     "lint": "eslint --ext .tsx --ext .ts src/",
     "lint:fix": "eslint --ext .tsx --ext .ts src/ --fix",
     "test": "jest",
-    "storybook:ios": "NODE_ENV=development react-native run-ios",
+    "storybook:ios": "NODE_ENV=storybook react-native run-ios",
     "storybook": "start-storybook -p 7007",
     "prestorybook": "rnstl"
   },

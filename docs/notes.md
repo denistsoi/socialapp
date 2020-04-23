@@ -62,10 +62,12 @@ H. Navigating back up the UI tree should be possible.
   - [ ] `/users`
 
 ### setup storybook for component development
+
 - [x] setup tooling
 - [ ] sort components based on use and include stories within each component folder (perhaps i should add in root alias)
 
 ### todo
+
 - [x] handle navigation (use react-navigation/native)
 
 ### components
@@ -89,5 +91,6 @@ H. Navigating back up the UI tree should be possible.
 - [ ] `\users\` address
 
 ### nice to have:
+
 - [ ] offline?
 - [ ] look at some bridging components, perhaps the camera: photo gallery

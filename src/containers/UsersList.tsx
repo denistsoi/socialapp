@@ -8,29 +8,30 @@ type Props = {
   navigation: UserListNavigationProp;
 };
 
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  website: string;
-  username: string;
-};
+// type User = {
+//   id: string;
+//   name: string;
+//   email: string;
+//   phone: string;
+//   website: string;
+//   username: string;
+// };
+import User from "../types/user";
 
-const useUsersList = (): Array<User> | null => {
+import { getUsers } from "../api/apiClient";
+
+const useUsersListHook = (): Array<User> | null => {
   const [users, setUsers] = useState<Array<User> | null>(null);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => setUsers(data));
+    getUsers().then((response) => setUsers(response));
   }, []);
 
   return users;
 };
 
 const UsersList = ({ navigation }: Props): ReactElement => {
-  const users = useUsersList();
+  const users = useUsersListHook();
 
   return (
     <View style={styles.container}>

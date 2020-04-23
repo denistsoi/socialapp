@@ -28,6 +28,6 @@ const App: React.FC<Props> = () => {
 
 import storybook from "../storybook";
 
-const env = process.env.NODE_ENV == "development" ? storybook : App;
+const env = process.env.NODE_ENV == "storybook" ? storybook : App;
 
 export default env;
