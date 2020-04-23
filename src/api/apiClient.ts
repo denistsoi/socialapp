@@ -42,16 +42,16 @@ const fetchResource = (
 /**
  * export
  */
+export const getUserDetails = (id = 1): Promise<UserDetails> => {
+  return fetch(`${SOURCE_URL}/users/${id}`).then((res) => res.json());
+};
+
 export const getUsers = ({ limit = 10 }: Options = {}): Promise<
   Array<User>
 > => {
   return fetchResource("users", {
     limit
   });
-};
-
-export const getUserDetails = (id: number): Promise<Array<UserDetails>> => {
-  return fetchResource(`users/${id}`);
 };
 
 export const getTodos = ({ limit = 10, start = 0 }: Options = {}): Promise<

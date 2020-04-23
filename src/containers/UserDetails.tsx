@@ -21,7 +21,7 @@ const useUserDetailsHook = (id?: number): UserDetails | null => {
   const [user, setUser] = useState<UserDetails | null>(null);
 
   useEffect(() => {
-    getUserDetails(id).then((response) => setUser(response[0]));
+    getUserDetails(id).then((response) => setUser(response));
   }, []);
 
   return user;
