@@ -5,8 +5,7 @@
 1. Given the public API: `https://jsonplaceholder.typicode.com`
 2. Write a UI using React Native
 3. Native modules(Java/Kotlin/Objective-C/Swoft) integration
-4. Put the code into a GitHub repository and provide us with
-   start the application
+4. Put the code into a GitHub repository and provide us with how to start the application
 5. Please, provide your submission as quickly as possible.
 
 ---
@@ -54,26 +53,29 @@ H. Navigating back up the UI tree should be possible.
 - [ ] implement in memory cache
 - [ ] implement offset/limit for jsonplaceholder
 
-- implement endpoints and caching for 
-  - [ ] `/posts`  
-  - [ ] `/comments`  
-  - [ ] `/albums`  
-  - [ ] `/photos`  
-  - [ ] `/todos`  
-  - [ ] `/users`  
+- implement endpoints for
+  - [ ] `/posts`
+  - [ ] `/comments`
+  - [ ] `/albums`
+  - [ ] `/photos`
+  - [ ] `/todos`
+  - [ ] `/users`
 
 ### setup storybook for component development
-- [ ] setup tooling
+- [x] setup tooling
+- [ ] sort components based on use and include stories within each component folder (perhaps i should add in root alias)
 
 ### todo
 - [x] handle navigation (use react-navigation/native)
 
 ### components
+
 - [ ] card (pass in props to adjust card)
-- [ ] `/photos` photo / photo album 
+- [ ] `/photos` photo / photo album
 - [ ] `/todos` todos list
 - [ ] nav buttons
-- [ ] will probably need a react stack navigaotr
+- [x] will probably need a react stack navigator
+  - [ ] need to have a better frontend design for this
 
 ### views
 
@@ -82,9 +84,10 @@ H. Navigating back up the UI tree should be possible.
 - [ ] `\posts` posts
 - [ ] `\comments`
 - [ ] `\albums` photo album
-- [ ] `\photos` 
+- [ ] `\photos`
 - [ ] `\todos` todos
-- [ ] `\users\` address 
+- [ ] `\users\` address
 
 ### nice to have:
+- [ ] offline?
 - [ ] look at some bridging components, perhaps the camera: photo gallery
