@@ -1,16 +1,15 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, FlatList, View } from "react-native";
 import { UserListNavigationProp } from "../types/navigation";
+import UserItem from "../components/UserItem";
 
 import styles from "./sharedStyles";
 
+/**
+ * hooks
+ */
 import { User } from "../types/resource";
 import { getUsers } from "../api/apiClient";
-import UserItem from "../components/UserItem";
-
-type Props = {
-  navigation: UserListNavigationProp;
-};
 
 const useUsersListHook = (): Array<User> | null => {
   const [users, setUsers] = useState<Array<User> | null>(null);
@@ -22,6 +21,14 @@ const useUsersListHook = (): Array<User> | null => {
   return users;
 };
 
+/**
+ * component
+ */
+
+type Props = {
+  navigation: UserListNavigationProp;
+};
+
 const UsersList = ({ navigation }: Props): ReactElement => {
   const users = useUsersListHook();
 
@@ -31,16 +38,18 @@ const UsersList = ({ navigation }: Props): ReactElement => {
         <ActivityIndicator />
       ) : (
         <View>
-          {!users
-            ? null
-            : users.map((user) => (
-                <UserItem
-                  key={user.id}
-                  user={user}
-                  onPress={(): void =>
-                    navigation.navigate("UserDetails", { id: user.id })
-                  }></UserItem>
-              ))}
+          <FlatList
+            data={users}
+            renderItem={({ item }): ReactElement => (
+              <UserItem
+                key={`${item.id}`}
+                user={item}
+                onPress={(): void =>
+                  navigation.navigate("UserDetails", { id: item.id })
+                }
+              />
+            )}
+          />
         </View>
       )}
     </View>

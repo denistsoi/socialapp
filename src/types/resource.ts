@@ -15,6 +15,7 @@ type Company = {
 };
 
 export interface UserDetails extends User {
+  id: string;
   email: string;
   phone: string;
   website: string;

@@ -11,11 +11,9 @@ import { RootStackParamList } from "./types/navigation";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-export interface Props {
-  name: string;
-}
+// export interface Props {}
 
-const App: React.FC<Props> = () => {
+const App: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="UsersList">
@@ -26,8 +24,9 @@ const App: React.FC<Props> = () => {
   );
 };
 
-import storybook from "../storybook";
+export default App;
 
-const env = process.env.NODE_ENV == "storybook" ? storybook : App;
-
-export default env;
+// import storybook from "../storybook";
+// const env = process.env.NODE_ENV == "storybook" ? storybook : App;
+//
+// export default env;

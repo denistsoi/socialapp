@@ -18,7 +18,7 @@ type Options = {
 const fetchResource = (
   resource: string,
   options?: Options
-): Promise<Array<T>> => {
+): Promise<Array<any>> => {
   let resourceURL = `${SOURCE_URL}/`;
 
   if (resource) {
@@ -26,8 +26,8 @@ const fetchResource = (
   }
 
   if (resource && options) {
-    const qs = Object?.entries(options)
-      ?.map((entry) => {
+    const qs = Object.entries(options)
+      .map((entry) => {
         const [key, value] = entry;
         return `_${key}=${value}`;
       })
@@ -42,7 +42,7 @@ const fetchResource = (
 /**
  * export
  */
-export const getUserDetails = (id = 1): Promise<UserDetails> => {
+export const getUserDetails = (id = "1"): Promise<UserDetails> => {
   return fetch(`${SOURCE_URL}/users/${id}`).then((res) => res.json());
 };
 

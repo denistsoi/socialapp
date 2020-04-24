@@ -2,11 +2,11 @@ import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type UserDetails = {
-  id: undefined;
+  id: string;
 };
 export type RootStackParamList = {
   UsersList: undefined;
-  UserDetails: UserDetails | {};
+  UserDetails: UserDetails | { id: string };
 };
 
 /**

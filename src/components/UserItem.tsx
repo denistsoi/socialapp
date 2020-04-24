@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 type Props = {
@@ -10,10 +10,20 @@ type Props = {
   onPress: () => void;
 };
 
+const style = StyleSheet.create({
+  userItem: {
+    paddingTop: 40,
+    paddingBottom: 40,
+    borderBottomColor: "red",
+    borderBottomWidth: 1
+    // backgroundColor:
+  }
+});
+
 const UserItem = ({ user, onPress }: Props): ReactElement => {
   return (
     <View>
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity onPress={onPress} style={style.userItem}>
         <Text>
           {user.name}: @{user.username}
         </Text>

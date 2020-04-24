@@ -8,28 +8,36 @@ import {
 
 import styles from "./sharedStyles";
 
-type Props = {
-  navigation: UserDetailsNavigationProp;
-  route?: UserDetailsRouteProp;
-};
-
+/**
+ * hooks
+ */
 import { UserDetails } from "../types/resource";
-
 import { getUserDetails } from "../api/apiClient";
 
-const useUserDetailsHook = (id?: number): UserDetails | null => {
+const useUserDetailsHook = (id?: string): UserDetails | null => {
   const [user, setUser] = useState<UserDetails | null>(null);
 
   useEffect(() => {
     getUserDetails(id).then((response) => setUser(response));
+
+    return (): void => {
+      // remove data from fetch
+    };
   }, []);
 
   return user;
 };
 
+/**
+ * component
+ */
+type Props = {
+  navigation: UserDetailsNavigationProp;
+  route: UserDetailsRouteProp;
+};
+
 const UserDetailsView = ({ navigation, route }: Props): ReactElement => {
-  const id = route?.params?.id;
-  const user = useUserDetailsHook(id);
+  const user = useUserDetailsHook(route.params.id);
 
   return (
     <View style={styles.container}>
