@@ -22,7 +22,7 @@
 ### 2. What should it contain?
 
 It is a simple social network app.  
-Users have posts and photo albums and a todo listPosts have comments. Photo albums have photos.
+Users have posts and photo albums and a todo list. Posts have comments. Photo albums have photos.
 
 We don't want to be too restrictive regarding how the data gets presented
 
@@ -75,14 +75,14 @@ H. Navigating back up the UI tree should be possible.
 - [ ] card (pass in props to adjust card)
 - [ ] `/photos` photo / photo album
 - [ ] `/todos` todos list
-- [ ] nav buttons
 - [x] will probably need a react stack navigator
   - [ ] need to have a better frontend design for this
+- [ ] nav buttons
 
 ### views
 
-- [ ] top list of users `/users`
-- [ ] user details
+- [x] top list of users `/users`
+- [x] user details
 - [ ] `\posts` posts
 - [ ] `\comments`
 - [ ] `\albums` photo album
