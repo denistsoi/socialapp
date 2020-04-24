@@ -1,5 +1,5 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { ActivityIndicator, FlatList, View } from "react-native";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import { UserListNavigationProp } from "../types/navigation";
 import UserItem from "../components/UserItem";
 
@@ -34,6 +34,7 @@ const UsersList = ({ navigation }: Props): ReactElement => {
 
   return (
     <View style={styles.container}>
+      <Text>Welcome</Text>
       {!users ? (
         <ActivityIndicator />
       ) : (

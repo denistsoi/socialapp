@@ -11,5 +11,5 @@ const stories = ["../src/components/stories/Buttons.stories"];
 
 module.exports = {
   loadStories,
-  stories,
+  stories
 };
