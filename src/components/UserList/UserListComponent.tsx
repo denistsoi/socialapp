@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react";
 import { ActivityIndicator, FlatList, View } from "react-native";
 
-import UserItem from "./UserItem";
+import UserItem from "../UserItem/UserItem";
 
-import { User } from "../types/resource";
+import { User } from "../../types/resource";
 
-import styles from "./userListStyles";
+import styles from "./UserListStyles";
 /**
  * component
  */
@@ -24,7 +24,7 @@ const UserList = ({ navigationfn, users }: Props): ReactElement => {
         <View>
           <FlatList
             data={users}
-            keyExtractor={(_, index) => index.toString()}
+            keyExtractor={(_, index): string => index.toString()}
             renderItem={({ item }): ReactElement => (
               <UserItem
                 user={item}

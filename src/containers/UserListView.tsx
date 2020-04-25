@@ -1,7 +1,7 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import { UserListNavigationProp } from "../types/navigation";
 
-import UserList from "../components/UserList";
+import UserList from "../components/UserList/UserListComponent";
 
 /**
  * hooks

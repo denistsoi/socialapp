@@ -4,10 +4,15 @@ export type User = {
   username: string;
 };
 
-type Address = {
+export type Address = {
   street: string;
   city: string;
   suite: string;
+  zipcode: string;
+  geo: {
+    lat: string;
+    lng: string;
+  };
 };
 
 type Company = {

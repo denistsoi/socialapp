@@ -1,5 +1,7 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { Button, Text, View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator } from "react-native";
+
+import UserDetailsComponent from "../components/UserDetails/UserDetailsComponent";
 
 import {
   UserDetailsNavigationProp,
@@ -21,7 +23,8 @@ const useUserDetailsHook = (id?: string): UserDetails | null => {
     getUserDetails(id).then((response) => setUser(response));
 
     return (): void => {
-      // remove data from fetch
+      // cleanup
+      setUser(null);
     };
   }, []);
 
@@ -44,13 +47,7 @@ const UserDetailsView = ({ navigation, route }: Props): ReactElement => {
       {!user ? (
         <ActivityIndicator />
       ) : (
-        <View>
-          <Text>{JSON.stringify(user, null, 2)}</Text>
-          <Button
-            title="Go to UserList"
-            onPress={(): void => navigation.navigate("UsersList")}
-          />
-        </View>
+        <UserDetailsComponent navigation={navigation} user={user} />
       )}
     </View>
   );

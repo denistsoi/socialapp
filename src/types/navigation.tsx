@@ -4,9 +4,11 @@ import { StackNavigationProp } from "@react-navigation/stack";
 type UserDetails = {
   id: string;
 };
+
 export type RootStackParamList = {
   UsersList: undefined;
   UserDetails: UserDetails | { id: string };
+  UserAddress: { address: object };
 };
 
 /**
@@ -22,5 +24,11 @@ export type UserDetailsNavigationProp = StackNavigationProp<
   "UserDetails"
 >;
 
+export type UserAddressNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "UserAddress"
+>;
+
 export type UserListRouteProp = RouteProp<RootStackParamList, "UsersList">;
 export type UserDetailsRouteProp = RouteProp<RootStackParamList, "UserDetails">;
+export type UserAddressRouteProp = RouteProp<RootStackParamList, "UserAddress">;

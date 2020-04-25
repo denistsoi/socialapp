@@ -4,8 +4,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import UserDetails from "./containers/UserDetails";
+import UserDetailsView from "./containers/UserDetailsView";
 import UserListView from "./containers/UserListView";
+import UserAddressView from "./containers/UserAddressView";
 
 import { RootStackParamList } from "./types/navigation";
 
@@ -16,7 +17,13 @@ const App: React.FC = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="UsersList">
         <Stack.Screen name="UsersList" component={UserListView}></Stack.Screen>
-        <Stack.Screen name="UserDetails" component={UserDetails}></Stack.Screen>
+        <Stack.Screen
+          name="UserDetails"
+          component={UserDetailsView}></Stack.Screen>
+
+        <Stack.Screen
+          name="UserAddress"
+          component={UserAddressView}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

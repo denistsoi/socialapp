@@ -4,7 +4,7 @@
 
 1. Given the public API: `https://jsonplaceholder.typicode.com`
 2. Write a UI using React Native
-3. Native modules(Java/Kotlin/Objective-C/Swoft) integration
+3. Native modules(Java/Kotlin/Objective-C/Swift) integration
 4. Put the code into a GitHub repository and provide us with how to start the application
 5. Please, provide your submission as quickly as possible.
 
@@ -46,6 +46,7 @@ H. Navigating back up the UI tree should be possible.
 - [x] setup prettier
 - [x] setup husky and precommits
 - [x] setup jest (already brought in)
+  - [x] setup jest with typescript and mocks
 
 ### api
 
