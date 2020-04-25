@@ -4,6 +4,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 type Props = {
   user: {
+    id: string;
     name: string;
     username: string;
   };
@@ -16,7 +17,6 @@ const style = StyleSheet.create({
     paddingBottom: 40,
     borderBottomColor: "red",
     borderBottomWidth: 1
-    // backgroundColor:
   }
 });
 
