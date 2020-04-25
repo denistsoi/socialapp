@@ -1,7 +1,7 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import { UserListNavigationProp } from "../types/navigation";
 
-import UsersList from "../components/UserList";
+import UserList from "../components/UserList";
 
 /**
  * hooks
@@ -32,7 +32,7 @@ const UserListView = ({ navigation }: Props): ReactElement => {
   const users = useUsersListHook();
 
   return (
-    <UsersList
+    <UserList
       navigationfn={(id: string): void => {
         navigation.navigate("UserDetails", { id });
       }}

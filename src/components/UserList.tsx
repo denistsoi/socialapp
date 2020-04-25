@@ -24,9 +24,9 @@ const UserList = ({ navigationfn, users }: Props): ReactElement => {
         <View>
           <FlatList
             data={users}
+            keyExtractor={(_, index) => index.toString()}
             renderItem={({ item }): ReactElement => (
               <UserItem
-                key={`${item.id}`}
                 user={item}
                 onPress={(): void => navigationfn(item.id)}
               />
