@@ -21,15 +21,16 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 20,
     flex: 1,
-    backgroundColor: "#efefef"
+    backgroundColor: "#fff"
   },
   container: {
+    backgroundColor: "#efefef",
     flex: 1,
-    backgroundColor: "#fff",
     height: "100%",
     width: "100%",
     justifyContent: "center",
-    padding: 20
+    padding: 20,
+    paddingBottom: 40
   },
   todo: {
     flex: 1,
@@ -133,8 +134,8 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
   return isLoading ? (
     <ActivityIndicator />
   ) : (
-    <ScrollView style={styles.scroll}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <ScrollView style={styles.scroll}>
         <View style={styles.marginTop}>
           <Address
             address={user.address}
@@ -179,8 +180,8 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
 
           {loadingTodos ? <ActivityIndicator /> : <Todos todos={todos} />}
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
