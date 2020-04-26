@@ -8,12 +8,9 @@ import {
   Post
 } from "../types/resource";
 
-const SOURCE_URL = "https://jsonplaceholder.typicode.com";
+import { Options, UserId } from "../types/apiClient";
 
-type Options = {
-  limit?: number;
-  start?: number;
-};
+const SOURCE_URL = "https://jsonplaceholder.typicode.com";
 
 const fetchResource = (
   resource: string,
@@ -54,35 +51,38 @@ export const getUsers = ({ limit = 10 }: Options = {}): Promise<
   });
 };
 
-export const getTodos = ({ limit = 10, start = 0 }: Options = {}): Promise<
-  Array<Todo>
-> => {
-  return fetchResource("todos", { limit, start });
+/**
+ * Resources
+ */
+
+export const getTodos = ({ userId = 1 }: UserId): Promise<Array<Todo>> => {
+  return fetch(`${SOURCE_URL}/todos?userId=${userId}`).then((res) =>
+    res.json()
+  );
 };
 
-export const getPhotos = ({ limit = 10, start = 0 }: Options = {}): Promise<
-  Array<Photo>
-> => {
-  return fetchResource("photos", { limit, start });
+export const getPhotos = ({ userId = 1 }: UserId): Promise<Array<Photo>> => {
+  return fetch(`${SOURCE_URL}/photos?userId=${userId}`).then((res) =>
+    res.json()
+  );
 };
 
-export const getAlbums = ({ limit = 10, start = 0 }: Options = {}): Promise<
-  Array<Album>
-> => {
-  return fetchResource("albums", { limit, start });
+export const getAlbums = ({ userId = 1 }: UserId): Promise<Array<Album>> => {
+  return fetch(`${SOURCE_URL}/albums?userId=${userId}`).then((res) =>
+    res.json()
+  );
 };
 
-export const getComments = ({ limit = 10, start = 0 }: Options = {}): Promise<
-  Array<Comment>
-> => {
-  return fetchResource("comments", { limit, start });
+export const getComments = ({
+  userId = 1
+}: UserId): Promise<Array<Comment>> => {
+  return fetch(`${SOURCE_URL}/comments?userId=${userId}`).then((res) =>
+    res.json()
+  );
 };
 
-export const getPosts = ({ limit = 10, start = 0 }: Options = {}): Promise<
-  Array<Post>
-> => {
-  return fetchResource("posts", {
-    limit,
-    start
-  });
+export const getPosts = ({ userId = 1 }: UserId): Promise<Array<Post>> => {
+  return fetch(`${SOURCE_URL}/posts?userId=${userId}`).then((res) =>
+    res.json()
+  );
 };

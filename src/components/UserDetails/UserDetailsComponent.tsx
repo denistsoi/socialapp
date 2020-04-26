@@ -2,20 +2,28 @@ import React, { ReactElement } from "react";
 import { View, Text } from "react-native";
 
 import Address from "../Address/UserAddressComponent";
+import Albums from "../Albums/UserAlbumsComponent";
 
-import { UserDetails } from "../../types/resource";
+import { UserDetails, Album, Post, Todo } from "../../types/resource";
 import { UserDetailsNavigationProp } from "./../../types/navigation";
 
 type Props = {
   navigation: UserDetailsNavigationProp;
   user: UserDetails;
+  albums: Array<Album> | null;
+  posts: Array<Post> | null;
+  todos: Array<Todo> | null;
 };
 
-const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
+const UserDetailsComponent = ({
+  navigation,
+  user,
+  albums,
+  posts,
+  todos
+}: Props): ReactElement => {
   return (
     <View>
-      <Text>{JSON.stringify(user, null, 2)}</Text>
-
       <Address
         address={user.address}
         onPress={(): void => {
@@ -23,9 +31,19 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
         }}
       />
 
-      {/* <Albums /> */}
-      {/* <Todos /> */}
-      {/* <Posts /> */}
+      <View>
+        <Text>Albums</Text>
+        <Albums
+          albums={albums}
+          onPress={(albumId: string): void => {
+            navigation.navigate("UserAlbum", { album: albumId });
+          }}
+        />
+      </View>
+
+      <Text>{JSON.stringify(todos)}</Text>
+
+      <Text>{JSON.stringify(posts)}</Text>
     </View>
   );
 };

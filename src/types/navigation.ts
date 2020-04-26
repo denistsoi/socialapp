@@ -6,9 +6,12 @@ type UserDetails = {
 };
 
 export type RootStackParamList = {
-  UsersList: undefined;
+  UserList: undefined;
   UserDetails: UserDetails | { id: string };
   UserAddress: { address: object };
+  UserAlbum: { album: string };
+  UserPost: { post: string };
+  UserTodo: { todo: string };
 };
 
 /**
@@ -16,7 +19,7 @@ export type RootStackParamList = {
  */
 export type UserListNavigationProp = StackNavigationProp<
   RootStackParamList,
-  "UsersList"
+  "UserList"
 >;
 
 export type UserDetailsNavigationProp = StackNavigationProp<
@@ -29,6 +32,10 @@ export type UserAddressNavigationProp = StackNavigationProp<
   "UserAddress"
 >;
 
-export type UserListRouteProp = RouteProp<RootStackParamList, "UsersList">;
+export type UserListRouteProp = RouteProp<RootStackParamList, "UserList">;
 export type UserDetailsRouteProp = RouteProp<RootStackParamList, "UserDetails">;
 export type UserAddressRouteProp = RouteProp<RootStackParamList, "UserAddress">;
+
+export type UserAlbumRouteProp = RouteProp<RootStackParamList, "UserAlbum">;
+export type UserPostRouteProp = RouteProp<RootStackParamList, "UserPost">;
+export type UserTodoRouteProp = RouteProp<RootStackParamList, "UserTodo">;

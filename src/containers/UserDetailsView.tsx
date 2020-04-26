@@ -13,8 +13,13 @@ import styles from "./sharedStyles";
 /**
  * hooks
  */
-import { UserDetails } from "../types/resource";
-import { getUserDetails } from "../api/apiClient";
+import { UserDetails, Album, Todo, Post } from "../types/resource";
+import {
+  getUserDetails,
+  getAlbums,
+  getPosts,
+  getTodos
+} from "../api/apiClient";
 
 const useUserDetailsHook = (id?: string): UserDetails | null => {
   const [user, setUser] = useState<UserDetails | null>(null);
@@ -31,6 +36,42 @@ const useUserDetailsHook = (id?: string): UserDetails | null => {
   return user;
 };
 
+const useUserAlbumsHook = (userId: string): Array<Album> | null => {
+  const [albums, setAlbums] = useState<Array<Album>>([]);
+
+  useEffect(() => {
+    getAlbums({ userId: parseInt(userId) }).then((response) =>
+      setAlbums(response)
+    );
+  }, []);
+
+  return albums;
+};
+
+const useUserPostsHook = (userId: string): Array<Post> | null => {
+  const [posts, setPosts] = useState<Array<Post>>([]);
+
+  useEffect(() => {
+    getPosts({ userId: parseInt(userId) }).then((response) =>
+      setPosts(response)
+    );
+  }, []);
+
+  return posts;
+};
+
+const useUserTodosHook = (userId: string): Array<Todo> | null => {
+  const [todos, setTodos] = useState<Array<Todo>>([]);
+
+  useEffect(() => {
+    getTodos({ userId: parseInt(userId) }).then((response) =>
+      setTodos(response)
+    );
+  }, []);
+
+  return todos;
+};
+
 /**
  * component
  */
@@ -41,13 +82,22 @@ type Props = {
 
 const UserDetailsView = ({ navigation, route }: Props): ReactElement => {
   const user = useUserDetailsHook(route.params.id);
+  const albums = useUserAlbumsHook(route.params.id);
+  const posts = useUserPostsHook(route.params.id);
+  const todos = useUserTodosHook(route.params.id);
 
   return (
     <View style={styles.container}>
       {!user ? (
         <ActivityIndicator />
       ) : (
-        <UserDetailsComponent navigation={navigation} user={user} />
+        <UserDetailsComponent
+          navigation={navigation}
+          user={user}
+          albums={albums}
+          posts={posts}
+          todos={todos}
+        />
       )}
     </View>
   );

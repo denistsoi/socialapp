@@ -73,12 +73,10 @@ H. Navigating back up the UI tree should be possible.
 
 ### components
 
-- [ ] card (pass in props to adjust card)
-- [ ] `/photos` photo / photo album
-- [ ] `/todos` todos list
-- [x] will probably need a react stack navigator
-  - [ ] need to have a better frontend design for this
-- [ ] nav buttons
+- [x] Have a section address
+- [ ] Have a section for photo album
+- [ ] Have a section for todo's
+- [ ] Have a section for posts / comments
 
 ### views
 

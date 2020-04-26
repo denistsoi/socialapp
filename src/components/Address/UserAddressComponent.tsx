@@ -12,7 +12,7 @@ const UserAddressComponent = ({ address, onPress }: Props): ReactElement => {
   return (
     <View>
       <TouchableOpacity onPress={onPress}>
-        <Text>{JSON.stringify(address)}</Text>
+        <Text>{JSON.stringify(address, null, 1)}</Text>
       </TouchableOpacity>
     </View>
   );
