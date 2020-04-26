@@ -9,9 +9,9 @@ export type RootStackParamList = {
   UserList: undefined;
   UserDetails: UserDetails | { id: string };
   UserAddress: { address: object };
-  UserAlbum: { album: string };
-  UserPost: { post: string };
-  UserTodo: { todo: string };
+  UserAlbum: { albumId: string };
+  UserPost: { postId: string };
+  UserTodo: { todoId: string };
 };
 
 /**

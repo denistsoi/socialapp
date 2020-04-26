@@ -3,17 +3,17 @@ import { View, Text } from "react-native";
 
 import styles from "./sharedStyles";
 
-import { UserTodosRouteProp } from "../types/navigation";
+import { UserTodoRouteProp } from "../types/navigation";
 
 type Props = {
-  route: UserTodosRouteProp;
+  route: UserTodoRouteProp;
 };
 
 const UserTodosView = ({ route }: Props): ReactElement => {
-  const { todos } = route.params;
+  const { todoId } = route.params;
   return (
     <View style={styles.container}>
-      <Text>{JSON.stringify(todos)}</Text>
+      <Text>{JSON.stringify(todoId)}</Text>
     </View>
   );
 };

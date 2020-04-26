@@ -11,10 +11,10 @@ type Props = {
 
 const UserAlbumView = ({ route }: Props): ReactElement => {
   console.log("route", route);
-  const { album } = route?.params;
+  const { albumId } = route?.params;
   return (
     <View style={styles.container}>
-      <Text>{JSON.stringify(album)}</Text>
+      <Text>{JSON.stringify(albumId)}</Text>
     </View>
   );
 };

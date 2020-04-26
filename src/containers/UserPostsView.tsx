@@ -3,17 +3,17 @@ import { View, Text } from "react-native";
 
 import styles from "./sharedStyles";
 
-import { UserPostsRouteProp } from "../types/navigation";
+import { UserPostRouteProp } from "../types/navigation";
 
 type Props = {
-  route: UserPostsRouteProp;
+  route: UserPostRouteProp;
 };
 
 const UserPostsView = ({ route }: Props): ReactElement => {
-  const { posts } = route.params;
+  const { postId } = route.params;
   return (
     <View style={styles.container}>
-      <Text>{JSON.stringify(posts)}</Text>
+      <Text>{JSON.stringify(postId)}</Text>
     </View>
   );
 };
