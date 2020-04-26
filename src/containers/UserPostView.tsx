@@ -9,7 +9,7 @@ type Props = {
   route: UserPostRouteProp;
 };
 
-const UserPostsView = ({ route }: Props): ReactElement => {
+const UserPostView = ({ route }: Props): ReactElement => {
   const { postId } = route.params;
   return (
     <View style={styles.container}>
@@ -18,4 +18,4 @@ const UserPostsView = ({ route }: Props): ReactElement => {
   );
 };
 
-export default UserPostsView;
+export default UserPostView;

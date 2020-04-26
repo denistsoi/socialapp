@@ -12,6 +12,9 @@ import { Options, UserId } from "../types/apiClient";
 
 const SOURCE_URL = "https://jsonplaceholder.typicode.com";
 
+export const controller = new AbortController();
+const { signal } = controller;
+
 const fetchResource = (
   resource: string,
   options?: Options
@@ -33,14 +36,16 @@ const fetchResource = (
     if (qs) resourceURL += `?${qs}`;
   }
 
-  return fetch(`${resourceURL}`).then((res) => res.json());
+  return fetch(`${resourceURL}`, { signal }).then((res) => res.json());
 };
 
 /**
  * export
  */
 export const getUserDetails = (id = "1"): Promise<UserDetails> => {
-  return fetch(`${SOURCE_URL}/users/${id}`).then((res) => res.json());
+  return fetch(`${SOURCE_URL}/users/${id}`, { signal }).then((res) =>
+    res.json()
+  );
 };
 
 export const getUsers = ({ limit = 10 }: Options = {}): Promise<
@@ -56,33 +61,45 @@ export const getUsers = ({ limit = 10 }: Options = {}): Promise<
  */
 
 export const getTodos = ({ userId = 1 }: UserId): Promise<Array<Todo>> => {
-  return fetch(`${SOURCE_URL}/todos?userId=${userId}`).then((res) =>
+  return fetch(`${SOURCE_URL}/todos?userId=${userId}`, { signal }).then((res) =>
     res.json()
   );
 };
 
 export const getPhotos = ({ userId = 1 }: UserId): Promise<Array<Photo>> => {
-  return fetch(`${SOURCE_URL}/photos?userId=${userId}`).then((res) =>
-    res.json()
-  );
+  return fetch(`${SOURCE_URL}/photos?userId=${userId}`, {
+    signal
+  }).then((res) => res.json());
 };
 
 export const getAlbums = ({ userId = 1 }: UserId): Promise<Array<Album>> => {
-  return fetch(`${SOURCE_URL}/albums?userId=${userId}`).then((res) =>
-    res.json()
-  );
+  return fetch(`${SOURCE_URL}/albums?userId=${userId}`, {
+    signal
+  }).then((res) => res.json());
 };
+
+// export const getComments = ({
+//   userId = 1
+// }: UserId): Promise<Array<Comment>> => {
+//   return fetch(`${SOURCE_URL}/comments?userId=${userId}`, {
+//     signal
+//   })
+//     .then((res) => res.json())
+//     .catch((e) => {
+//       if (e.name === "AbortError") return;
+//     });
+// };
 
 export const getComments = ({
   userId = 1
 }: UserId): Promise<Array<Comment>> => {
-  return fetch(`${SOURCE_URL}/comments?userId=${userId}`).then((res) =>
-    res.json()
-  );
+  return fetch(`${SOURCE_URL}/comments?userId=${userId}`, {
+    signal
+  }).then((res) => res.json());
 };
 
 export const getPosts = ({ userId = 1 }: UserId): Promise<Array<Post>> => {
-  return fetch(`${SOURCE_URL}/posts?userId=${userId}`).then((res) =>
+  return fetch(`${SOURCE_URL}/posts?userId=${userId}`, { signal }).then((res) =>
     res.json()
   );
 };

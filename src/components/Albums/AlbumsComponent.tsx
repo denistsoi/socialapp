@@ -1,5 +1,7 @@
 import React, { ReactElement } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
+
+const deviceWidth = Dimensions.get("window").width;
 
 type Props = {
   albums: Array<Album> | null;
@@ -16,7 +18,8 @@ type AlbumPropType = {
 
 const styles = StyleSheet.create({
   album: {
-    width: 80
+    width: deviceWidth,
+    flex: 1
   },
   imagePlaceholder: {
     height: 40,

@@ -13,10 +13,11 @@ type Props = {
 
 const style = StyleSheet.create({
   userItem: {
+    padding: 10,
     paddingTop: 40,
     paddingBottom: 40,
-    borderBottomColor: "#444",
-    borderBottomWidth: 1,
+    borderBottomColor: "#ababab",
+    borderBottomWidth: 2,
     fontSize: 16,
     alignItems: "center"
   },

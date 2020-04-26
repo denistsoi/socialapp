@@ -1,14 +1,13 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 
 import Address from "../Address/UserAddressComponent";
 import Albums from "../Albums/AlbumsComponent";
 
-import { UserDetails, Album, Post, Todo } from "../../types/resource";
+import { UserDetails, Post, Todo } from "../../types/resource";
 import { UserDetailsNavigationProp } from "./../../types/navigation";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-
-import { getAlbums, getPosts, getTodos } from "../../api/apiClient";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 type Props = {
   navigation: UserDetailsNavigationProp;
@@ -17,7 +16,51 @@ type Props = {
 
 const styles = StyleSheet.create({
   marginTop: { marginTop: 10 },
-  scroll: { width: "100%", flex: 1 }
+  scroll: {
+    height: "100%",
+    width: "100%",
+    padding: 20,
+    flex: 1,
+    backgroundColor: "#efefef"
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    height: "100%",
+    width: "100%",
+    justifyContent: "center",
+    padding: 20
+  },
+  todo: {
+    flex: 1,
+    flexDirection: "row"
+  },
+  todoText: {
+    width: "90%"
+  },
+
+  postContainer: {
+    padding: 2,
+    paddingBottom: 3,
+    marginTop: 10,
+    borderBottomColor: "#ababab",
+    borderBottomWidth: 1
+  },
+  postTitle: {
+    fontWeight: "bold"
+  },
+  postBody: {
+    fontSize: 12
+  },
+  commentContainer: {
+    alignSelf: "flex-end",
+
+    padding: 4,
+    backgroundColor: "#efefef"
+  },
+  comment: {
+    fontSize: 8
+  }
 });
 
 const Posts = ({
@@ -31,29 +74,41 @@ const Posts = ({
     <View>
       {posts?.map((post, index) => (
         <View key={index}>
-          <TouchableOpacity onPress={(): void => onPress(post.id)}>
-            <Text>{JSON.stringify(post)}</Text>
-          </TouchableOpacity>
+          {/* Post */}
+          <View style={styles.postContainer}>
+            <Text numberOfLines={1} style={styles.postTitle}>
+              {post.title}
+            </Text>
+            <Text numberOfLines={2} style={styles.postBody}>
+              {post.body}
+            </Text>
+            <TouchableOpacity
+              onPress={(): void => onPress(post.id)}
+              style={styles.commentContainer}>
+              <View>
+                <Text style={styles.comment}>Comments</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       ))}
     </View>
   );
 };
 
-const Todos = ({
-  todos,
-  onPress
-}: {
-  todos: Array<Todo>;
-  onPress: Function;
-}): ReactElement => {
+const Todos = ({ todos }: { todos: Array<Todo> }): ReactElement => {
   return (
     <View>
       {todos?.map((todo, index) => (
-        <View key={index}>
-          <TouchableOpacity onPress={(): void => onPress(todo.id)}>
-            <Text>{JSON.stringify(todo)}</Text>
-          </TouchableOpacity>
+        <View key={index} style={styles.todo}>
+          <Icon
+            size={20}
+            name={
+              todo.completed ? "check-box" : "check-box-outline-blank"
+            }></Icon>
+          <Text style={styles.todoText} numberOfLines={1}>
+            {todo.title}
+          </Text>
         </View>
       ))}
     </View>
@@ -63,49 +118,23 @@ const Todos = ({
 /**
  * hooks
  */
-const useUserAlbumsHook = (userId: string): Array<Album> | null => {
-  const [albums, setAlbums] = useState<Array<Album>>([]);
-
-  useEffect(() => {
-    getAlbums({ userId: parseInt(userId) }).then((response) =>
-      setAlbums(response)
-    );
-  }, []);
-
-  return albums;
-};
-
-const useUserPostsHook = (userId: string): Array<Post> | null => {
-  const [posts, setPosts] = useState<Array<Post>>([]);
-
-  useEffect(() => {
-    getPosts({ userId: parseInt(userId) }).then((response) =>
-      setPosts(response)
-    );
-  }, []);
-
-  return posts;
-};
-
-const useUserTodosHook = (userId: string): Array<Todo> | null => {
-  const [todos, setTodos] = useState<Array<Todo>>([]);
-
-  useEffect(() => {
-    getTodos({ userId: parseInt(userId) }).then((response) =>
-      setTodos(response)
-    );
-  }, []);
-
-  return todos;
-};
+import { useUserAlbumsHook, useUserPostsHook, useUserTodosHook } from "./hooks";
 
 const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
-  const albums = useUserAlbumsHook(user.id);
-  const posts = useUserPostsHook(user.id);
-  const todos = useUserTodosHook(user.id);
-  return (
+  const { albums, loadingAlbums } = useUserAlbumsHook(user.id);
+  const { posts, loadingPosts } = useUserPostsHook(user.id);
+  const { todos, loadingTodos } = useUserTodosHook(user.id);
+
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    if (!loadingAlbums && !loadingTodos && !loadingPosts) setLoading(false);
+  }, [loadingAlbums, loadingPosts, loadingTodos]);
+
+  return isLoading ? (
+    <ActivityIndicator />
+  ) : (
     <ScrollView style={styles.scroll}>
-      <View>
+      <View style={styles.container}>
         <View style={styles.marginTop}>
           <Address
             address={user.address}
@@ -118,7 +147,7 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
         <View style={styles.marginTop}>
           <Text>Albums</Text>
 
-          {!albums ? (
+          {loadingAlbums ? (
             <ActivityIndicator />
           ) : (
             <Albums
@@ -133,7 +162,7 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
         <View style={styles.marginTop}>
           <Text>Posts</Text>
 
-          {!posts ? (
+          {loadingPosts ? (
             <ActivityIndicator />
           ) : (
             <Posts
@@ -148,16 +177,7 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
         <View style={styles.marginTop}>
           <Text>Todos</Text>
 
-          {!todos ? (
-            <ActivityIndicator />
-          ) : (
-            <Todos
-              todos={todos}
-              onPress={(todoId: string): void => {
-                navigation.navigate("UserTodo", { todoId });
-              }}
-            />
-          )}
+          {loadingTodos ? <ActivityIndicator /> : <Todos todos={todos} />}
         </View>
       </View>
     </ScrollView>

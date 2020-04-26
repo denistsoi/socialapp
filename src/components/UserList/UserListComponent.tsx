@@ -21,7 +21,7 @@ const UserList = ({ navigationfn, users }: Props): ReactElement => {
       {!users ? (
         <ActivityIndicator />
       ) : (
-        <View>
+        <View style={styles.userList}>
           <FlatList
             data={users}
             keyExtractor={(_, index): string => index.toString()}

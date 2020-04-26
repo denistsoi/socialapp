@@ -8,6 +8,7 @@ import UserDetailsView from "./containers/UserDetailsView";
 import UserListView from "./containers/UserListView";
 import UserAddressView from "./containers/UserAddressView";
 import UserAlbumView from "./containers/UserAlbumView";
+import UserPostView from "./containers/UserPostView";
 
 import { RootStackParamList } from "./types/navigation";
 
@@ -17,16 +18,11 @@ const App: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="UserList">
-        <Stack.Screen name="UserList" component={UserListView}></Stack.Screen>
-        <Stack.Screen
-          name="UserDetails"
-          component={UserDetailsView}></Stack.Screen>
-
-        <Stack.Screen
-          name="UserAddress"
-          component={UserAddressView}></Stack.Screen>
-
-        <Stack.Screen name="UserAlbum" component={UserAlbumView}></Stack.Screen>
+        <Stack.Screen name="UserList" component={UserListView} />
+        <Stack.Screen name="UserDetails" component={UserDetailsView} />
+        <Stack.Screen name="UserAddress" component={UserAddressView} />
+        <Stack.Screen name="UserAlbum" component={UserAlbumView} />
+        <Stack.Screen name="UserPost" component={UserPostView} />
       </Stack.Navigator>
     </NavigationContainer>
   );
