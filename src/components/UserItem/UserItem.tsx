@@ -11,22 +11,25 @@ type Props = {
   onPress: () => void;
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   userItem: {
     padding: 10,
-    paddingTop: 40,
-    paddingBottom: 40,
+    paddingTop: 20,
+    paddingBottom: 20,
     borderBottomColor: "#ababab",
-    borderBottomWidth: 2,
+    borderBottomWidth: 0.5,
     fontSize: 16,
     alignItems: "center"
   },
   header: {
     flex: 1,
-    width: "80%",
+    width: "100%",
     alignContent: "stretch",
     flexDirection: "row",
     alignItems: "baseline"
+  },
+  title: {
+    fontSize: 16
   },
   subtitle: {
     fontSize: 12,
@@ -38,10 +41,10 @@ const style = StyleSheet.create({
 const UserItem = ({ user, onPress }: Props): ReactElement => {
   return (
     <View>
-      <TouchableOpacity onPress={onPress} style={style.userItem}>
-        <View style={style.header}>
-          <Text>{user.name}</Text>
-          <Text style={style.subtitle}>@{user.username}</Text>
+      <TouchableOpacity onPress={onPress} style={styles.userItem}>
+        <View style={styles.header}>
+          <Text style={styles.title}>{user.name}</Text>
+          <Text style={styles.subtitle}>@{user.username}</Text>
         </View>
       </TouchableOpacity>
     </View>

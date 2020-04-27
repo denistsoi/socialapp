@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Address } from "../../types/resource";
 
@@ -8,11 +8,24 @@ type Props = {
   onPress: any;
 };
 
+const styles = StyleSheet.create({
+  address: {
+    fontSize: 10
+  }
+});
+
 const UserAddressComponent = ({ address, onPress }: Props): ReactElement => {
   return (
     <View>
       <TouchableOpacity onPress={onPress}>
-        <Text>{JSON.stringify(address, null, 1)}</Text>
+        <View>
+          <Text style={styles.address}>
+            {address.suite} {address.street}
+          </Text>
+          <Text style={styles.address}>
+            {address.city} {address.zipcode}
+          </Text>
+        </View>
       </TouchableOpacity>
     </View>
   );

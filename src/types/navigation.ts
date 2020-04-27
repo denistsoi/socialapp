@@ -8,7 +8,18 @@ type UserDetails = {
 export type RootStackParamList = {
   UserList: undefined;
   UserDetails: UserDetails | { id: string };
-  UserAddress: { address: object };
+  UserAddress: {
+    address: {
+      street: string;
+      suite: string;
+      city: string;
+      zipcode: string;
+      geo: {
+        lat: string;
+        lng: string;
+      };
+    };
+  };
   UserAlbum: { albumId: string };
   UserPost: { postId: string };
   UserTodo: { todoId: string };

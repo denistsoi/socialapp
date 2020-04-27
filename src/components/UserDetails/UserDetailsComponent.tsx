@@ -15,12 +15,30 @@ type Props = {
 };
 
 const styles = StyleSheet.create({
-  marginTop: { marginTop: 10 },
+  nameContainer: {
+    flex: 1
+  },
+  name: {
+    fontSize: 16,
+    justifyContent: "center"
+  },
+  username: {
+    fontSize: 12
+  },
+
+  section: {
+    paddingHorizontal: 10,
+    paddingVertical: 10
+  },
+
+  header: {
+    padding: 10,
+    backgroundColor: "#74b9ff"
+  },
   scroll: {
     height: "100%",
     width: "100%",
-    padding: 20,
-    flex: 1,
+    flex: 9,
     backgroundColor: "#fff"
   },
   container: {
@@ -116,6 +134,15 @@ const Todos = ({ todos }: { todos: Array<Todo> }): ReactElement => {
   );
 };
 
+const UserName = (user: { name: string; username: string }): ReactElement => {
+  return (
+    <View style={styles.nameContainer}>
+      <Text style={styles.name}>{user.name}</Text>
+      <Text style={styles.username}>@{user.username}</Text>
+    </View>
+  );
+};
+
 /**
  * hooks
  */
@@ -136,7 +163,9 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
   ) : (
     <View style={styles.container}>
       <ScrollView style={styles.scroll}>
-        <View style={styles.marginTop}>
+        <View style={styles.header}>
+          <UserName {...user} />
+
           <Address
             address={user.address}
             onPress={(): void => {
@@ -145,9 +174,8 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
           />
         </View>
 
-        <View style={styles.marginTop}>
+        <View style={styles.section}>
           <Text>Albums</Text>
-
           {loadingAlbums ? (
             <ActivityIndicator />
           ) : (
@@ -160,7 +188,7 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
           )}
         </View>
 
-        <View style={styles.marginTop}>
+        <View style={styles.section}>
           <Text>Posts</Text>
 
           {loadingPosts ? (
@@ -175,7 +203,7 @@ const UserDetailsComponent = ({ navigation, user }: Props): ReactElement => {
           )}
         </View>
 
-        <View style={styles.marginTop}>
+        <View style={styles.section}>
           <Text>Todos</Text>
 
           {loadingTodos ? <ActivityIndicator /> : <Todos todos={todos} />}

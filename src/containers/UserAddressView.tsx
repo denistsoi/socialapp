@@ -1,9 +1,10 @@
 import React, { ReactElement } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
-import styles from "./sharedStyles";
+import AddressDetails from "../components/Address/AddressDetails";
 
 import { UserAddressRouteProp } from "../types/navigation";
+import styles from "./sharedStyles";
 
 type Props = {
   route: UserAddressRouteProp;
@@ -11,9 +12,10 @@ type Props = {
 
 const UserAddressView = ({ route }: Props): ReactElement => {
   const { address } = route.params;
+
   return (
     <View style={styles.container}>
-      <Text>{JSON.stringify(address)}</Text>
+      <AddressDetails {...address} />
     </View>
   );
 };

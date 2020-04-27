@@ -1,39 +1,34 @@
 import React, { ReactElement } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 
-const deviceWidth = Dimensions.get("window").width;
-
 type Props = {
   albums: Array<Album> | null;
   onPress: Function;
 };
 
 import { Album as AlbumType, Album } from "../../types/resource";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 
-type AlbumPropType = {
+type AlbumProp = {
   album: AlbumType;
   onPress: Function;
 };
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop: 10
+  },
   album: {
-    width: deviceWidth,
-    flex: 1
+    width: 60,
+    height: 60,
+    borderWidth: 0.5,
+    borderColor: "red",
+    marginRight: 20
   },
-  imagePlaceholder: {
-    height: 40,
-    width: 40,
-    backgroundColor: "grey",
-    opacity: 0.7
-  },
-  touchable: {
-    alignContent: "center",
-    flex: 1
-  }
+  touchable: {}
 });
 
-const AlbumComponent = ({ album, onPress }: AlbumPropType): ReactElement => {
+const AlbumItem = ({ album, onPress }: AlbumProp): ReactElement => {
   const { id, title } = album;
 
   return (
@@ -41,7 +36,6 @@ const AlbumComponent = ({ album, onPress }: AlbumPropType): ReactElement => {
       <TouchableOpacity
         onPress={(): void => onPress(id)}
         style={styles.touchable}>
-        <View style={styles.imagePlaceholder}></View>
         <Text>{title}</Text>
       </TouchableOpacity>
     </View>
@@ -50,13 +44,12 @@ const AlbumComponent = ({ album, onPress }: AlbumPropType): ReactElement => {
 
 const UserAlbums = ({ albums, onPress }: Props): ReactElement => {
   return (
-    <View>
-      {albums?.map((album, index) => (
-        <AlbumComponent
-          key={index}
-          album={album}
-          onPress={onPress}></AlbumComponent>
-      ))}
+    <View style={styles.container}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        {albums?.map((album, index) => (
+          <AlbumItem key={index} album={album} onPress={onPress} />
+        ))}
+      </ScrollView>
     </View>
   );
 };
