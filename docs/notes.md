@@ -99,6 +99,5 @@ H. Navigating back up the UI tree should be possible.
 - [ ] map component
 - [ ] reply button?
 - [ ] implement in memory cache
-
 - [ ] offline?
 - [ ] look at some bridging components, perhaps the camera: photo gallery

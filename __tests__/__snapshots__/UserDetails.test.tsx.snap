@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserDetails should render a single user's details in UserDetailsComponent 1`] = `
+exports[`UserDetails should render a single user address details in UserDetailsComponent 1`] = `
 <View
   style={
     Object {
@@ -96,8 +96,9 @@ exports[`UserDetails should render a single user's details in UserDetailsCompone
                     }
                   }
                 >
-                  101 Avenue
+                  1/F
                    
+                  101 Avenue
                 </Text>
                 <Text
                   style={

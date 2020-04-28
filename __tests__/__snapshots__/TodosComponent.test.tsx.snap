@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todos Component should render single data in todos 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    Icon
+    <Text
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "#666",
+          "width": "90%",
+        }
+      }
+    >
+      Buy Groceries
+    </Text>
+  </View>
+</View>
+`;

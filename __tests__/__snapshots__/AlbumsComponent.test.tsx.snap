@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Albums Component should render data in albums 1`] = `
+<View
+  style={Object {}}
+>
+  <RCTScrollView
+    collapsable={false}
+    horizontal={true}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    showsHorizontalScrollIndicator={false}
+  >
+    <View>
+      <RNGestureHandlerButton
+        collapsable={false}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "borderColor": "red",
+                "borderWidth": 0.5,
+                "height": 60,
+                "marginRight": 20,
+                "width": 60,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#666",
+                  "fontSize": 10,
+                }
+              }
+            >
+              Bob and the Bobsleigh
+            </Text>
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+    </View>
+  </RCTScrollView>
+</View>
+`;
