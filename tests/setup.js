@@ -11,16 +11,6 @@ jest.mock("react-native-vector-icons/MaterialIcons", () => {
       return "Icon";
     }
   };
-  //   createIconSet: () => {
-  //     const Icon = class extends React.Component {
-  //       render() {
-  //         return jest.fn();
-  //       }
-  //     };
-
-  //     return Icon;
-  //   }
-  // };
 });
 
 global.AbortController = jest.fn();
