@@ -6,7 +6,7 @@ React Native App written in Typescript.
 
 ## example
 
-![https://gph.is/g/ZkR7LQP]
+![screenshot](https://media.giphy.com/media/kBZvlo6SYi3lbBSpSE/giphy.gif)
 
 
 ## notes:
