@@ -4,6 +4,7 @@ import { ActivityIndicator, FlatList, View } from "react-native";
 import UserItem from "../UserItem/UserItem";
 
 import { User } from "../../types/resource";
+import { UserListNavigationProp } from "../../types/navigation";
 
 import styles from "./UserListStyles";
 /**
@@ -11,11 +12,11 @@ import styles from "./UserListStyles";
  */
 
 type Props = {
-  navigationfn: Function;
+  navigation: UserListNavigationProp;
   users: Array<User> | null;
 };
 
-const UserList = ({ navigationfn, users }: Props): ReactElement => {
+const UserList = ({ navigation, users }: Props): ReactElement => {
   return (
     <View style={styles.container}>
       {!users ? (
@@ -28,7 +29,9 @@ const UserList = ({ navigationfn, users }: Props): ReactElement => {
             renderItem={({ item }): ReactElement => (
               <UserItem
                 user={item}
-                onPress={(): void => navigationfn(item.id)}
+                onPress={(): void =>
+                  navigation.navigate("UserDetails", { id: item.id })
+                }
               />
             )}
           />

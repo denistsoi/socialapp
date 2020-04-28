@@ -40,12 +40,7 @@ const UserListView = ({ navigation }: Props): ReactElement => {
 
   return (
     <SafeAreaView style={styles.safeView}>
-      <UserList
-        navigationfn={(id: string): void => {
-          navigation.navigate("UserDetails", { id });
-        }}
-        users={users}
-      />
+      <UserList navigation={navigation} users={users} />
     </SafeAreaView>
   );
 };

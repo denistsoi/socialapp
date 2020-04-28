@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
@@ -71,7 +72,8 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.jest.json"
+        "tsConfig": "tsconfig.jest.json",
+        "babelConfig": "babel.config.js"
       }
     },
     "setupFiles": [

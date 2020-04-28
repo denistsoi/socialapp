@@ -53,8 +53,7 @@ H. Navigating back up the UI tree should be possible.
 - [x] look at what data is brought from the api
 - [x] implement offset/limit for jsonplaceholder
 
-
-- implement endpoints for
+* implement endpoints for
   - [x] `/posts` - `100`
   - [x] `/comments` - `500`
   - [x] `/albums` - `100`

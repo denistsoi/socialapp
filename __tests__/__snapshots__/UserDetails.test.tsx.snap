@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDetails should render a single user's details in UserDetailsComponent 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#efefef",
+      "flex": 1,
+      "height": "100%",
+      "justifyContent": "center",
+      "padding": 20,
+      "paddingBottom": 40,
+      "width": "100%",
+    }
+  }
+>
+  <RCTScrollView
+    collapsable={false}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#74b9ff",
+            "padding": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "justifyContent": "center",
+              }
+            }
+          >
+            Bob
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 12,
+              }
+            }
+          >
+            @
+            Bob
+          </Text>
+        </View>
+        <View>
+          <RNGestureHandlerButton
+            collapsable={false}
+            onGestureEvent={[Function]}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            onHandlerStateChange={[Function]}
+            rippleColor={0}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                  101 Avenue
+                   
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 10,
+                    }
+                  }
+                >
+                   
+                </Text>
+              </View>
+            </View>
+          </RNGestureHandlerButton>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "minHeight": 100,
+            "paddingHorizontal": 10,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "paddingBottom": 4,
+            }
+          }
+        >
+          Albums
+        </Text>
+        <ActivityIndicator
+          animating={true}
+          color="#999999"
+          hidesWhenStopped={true}
+          size="small"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "minHeight": 100,
+            "paddingHorizontal": 10,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "paddingBottom": 4,
+            }
+          }
+        >
+          Posts
+        </Text>
+        <ActivityIndicator
+          animating={true}
+          color="#999999"
+          hidesWhenStopped={true}
+          size="small"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "minHeight": 100,
+            "paddingHorizontal": 10,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "paddingBottom": 4,
+            }
+          }
+        >
+          Todos
+        </Text>
+        <ActivityIndicator
+          animating={true}
+          color="#999999"
+          hidesWhenStopped={true}
+          size="small"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
