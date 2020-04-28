@@ -38,9 +38,9 @@ const CommentComponent = (props: {
   body: string;
 }): ReactElement => (
   <View style={styles.comment}>
-    <Text>{props.name}</Text>
-    <Text>{props.email}</Text>
-    <Text>{props.body}</Text>
+    <Text style={styles.commentName}>{props.name}</Text>
+    <Text style={styles.commentEmail}>{props.email}</Text>
+    <Text style={styles.commentBody}>{props.body}</Text>
   </View>
 );
 

@@ -20,8 +20,10 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderWidth: 0.5,
-    borderColor: "red",
-    marginRight: 20
+    borderColor: "#888",
+    marginRight: 20,
+    padding: 2,
+    backgroundColor: "#fafafa"
   },
   albumName: {
     fontSize: 10,
@@ -38,7 +40,9 @@ const AlbumItem = ({ album, onPress }: AlbumProp): ReactElement => {
       onPress={(): void => onPress(id)}
       style={styles.touchable}>
       <View style={styles.album}>
-        <Text style={styles.albumName}>{title}</Text>
+        <Text style={styles.albumName} numberOfLines={3}>
+          {title}
+        </Text>
       </View>
     </TouchableOpacity>
   );

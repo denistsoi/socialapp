@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   post: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: "white"
+    backgroundColor: "#74b9ff"
   },
   postTitle: {
     fontWeight: "bold",
@@ -35,8 +35,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   comment: {
-    padding: 2,
+    padding: 4,
+    paddingRight: 10,
     borderBottomWidth: 0.5
+  },
+  commentName: {
+    fontSize: 12,
+    fontWeight: "bold"
+  },
+  commentEmail: {
+    fontSize: 12,
+    marginBottom: 2
+  },
+  commentBody: {
+    paddingLeft: 10,
+    textAlign: "left",
+    fontSize: 10
   }
 });
 

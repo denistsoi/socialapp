@@ -4,6 +4,11 @@
 
 React Native App written in Typescript.
 
+## example
+
+![https://gph.is/g/ZkR7LQP]
+
+
 ## notes:
 
 check [notes](./docs/notes.md) for judging criteria and other todos

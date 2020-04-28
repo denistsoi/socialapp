@@ -39,15 +39,18 @@ exports[`Albums Component should render data in albums 1`] = `
           <View
             style={
               Object {
-                "borderColor": "red",
+                "backgroundColor": "#fafafa",
+                "borderColor": "#888",
                 "borderWidth": 0.5,
                 "height": 60,
                 "marginRight": 20,
+                "padding": 2,
                 "width": 60,
               }
             }
           >
             <Text
+              numberOfLines={3}
               style={
                 Object {
                   "color": "#666",
