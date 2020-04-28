@@ -1,5 +1,6 @@
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { Post } from "./resource";
 
 type UserDetails = {
   id: string;
@@ -21,7 +22,7 @@ export type RootStackParamList = {
     };
   };
   UserAlbum: { albumId: string };
-  UserPost: { postId: string };
+  UserPost: { post: Post };
   UserTodo: { todoId: string };
 };
 

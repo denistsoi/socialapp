@@ -1,5 +1,5 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, SafeAreaView } from "react-native";
 
 import UserDetailsComponent from "../components/UserDetails/UserDetailsComponent";
 
@@ -20,7 +20,12 @@ const useUserDetailsHook = (id?: string): UserDetails | null => {
   const [user, setUser] = useState<UserDetails | null>(null);
 
   useEffect(() => {
-    getUserDetails(id).then((response) => setUser(response));
+    getUserDetails(id)
+      .then((response) => setUser(response))
+      .catch((err) => {
+        console.error(err);
+        // handle error
+      });
 
     return (): void => {
       // cleanup
@@ -44,11 +49,13 @@ const UserDetailsView = ({ navigation, route }: Props): ReactElement => {
 
   return (
     <View style={styles.container}>
-      {!user ? (
-        <ActivityIndicator />
-      ) : (
-        <UserDetailsComponent navigation={navigation} user={user} />
-      )}
+      <SafeAreaView style={styles.safeView}>
+        {!user ? (
+          <ActivityIndicator />
+        ) : (
+          <UserDetailsComponent navigation={navigation} user={user} />
+        )}
+      </SafeAreaView>
     </View>
   );
 };

@@ -52,7 +52,7 @@ H. Navigating back up the UI tree should be possible.
 
 - [x] look at what data is brought from the api
 - [x] implement offset/limit for jsonplaceholder
-- [ ] implement in memory cache
+
 
 - implement endpoints for
   - [x] `/posts` - `100`
@@ -74,22 +74,32 @@ H. Navigating back up the UI tree should be possible.
 ### components
 
 - [x] Have a section address
-- [ ] Have a section for photo album
-- [ ] Have a section for todo's
-- [ ] Have a section for posts / comments
+- [x] Have a section for photo album
+- [x] Have a section for todo's
+- [x] Have a section for posts / comments
 
 ### views
 
 - [x] top list of users `/users`
 - [x] user details
-- [ ] `\posts` posts
-- [ ] `\comments`
-- [ ] `\albums` photo album
-- [ ] `\photos`
-- [ ] `\todos` todos
-- [ ] `\users\` address
+- [x] `\posts` posts
+- [x] `\comments`
+- [x] `\photos`
+- [x] `\albums` photo album
+- [x] `\users\` address
+
+### refactor
+
+- [x] albumView
+- [x] Post/Comment View
+- [x] Address View
 
 ### nice to have:
+
+- [ ] styleguide consolidation
+- [ ] map component
+- [ ] reply button?
+- [ ] implement in memory cache
 
 - [ ] offline?
 - [ ] look at some bridging components, perhaps the camera: photo gallery

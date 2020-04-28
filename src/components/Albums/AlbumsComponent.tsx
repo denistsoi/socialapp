@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 type Props = {
   albums: Array<Album> | null;
@@ -15,15 +15,17 @@ type AlbumProp = {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 10
-  },
+  container: {},
   album: {
     width: 60,
     height: 60,
     borderWidth: 0.5,
     borderColor: "red",
     marginRight: 20
+  },
+  albumName: {
+    fontSize: 10,
+    color: "#666"
   },
   touchable: {}
 });
@@ -32,13 +34,13 @@ const AlbumItem = ({ album, onPress }: AlbumProp): ReactElement => {
   const { id, title } = album;
 
   return (
-    <View style={styles.album}>
-      <TouchableOpacity
-        onPress={(): void => onPress(id)}
-        style={styles.touchable}>
-        <Text>{title}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={(): void => onPress(id)}
+      style={styles.touchable}>
+      <View style={styles.album}>
+        <Text style={styles.albumName}>{title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

@@ -3,6 +3,9 @@ export type UserId = {
 };
 
 export type Options = {
-  limit?: number;
-  start?: number;
+  _limit?: number;
+  _start?: number;
+  albumId?: number;
+  userId?: number;
+  postId?: number;
 };
